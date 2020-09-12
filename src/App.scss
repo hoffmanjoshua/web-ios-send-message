@@ -1,0 +1,188 @@
+$default-font : -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+.App {
+  text-align: center;
+  font-family: $default-font;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 0 5px;
+}
+
+.display-wrapper {
+  width: 100%;
+  max-width: 400px
+}
+
+.sms-form {
+  margin: auto;
+  max-width: 400px;
+  
+  .error {
+    outline: 2px solid #f00;
+  }
+  
+  input {
+    &:required {
+      box-shadow: none;
+    }
+    &:invalid {
+      box-shadow: none;
+    }
+  }
+  
+  .input-to {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+  
+    input {
+      color: #0B93F6;
+      font-size: 1em;
+      background-color: transparent;
+      padding: 5px 10px;
+      border-radius: 30px;
+      height: 50px;
+      border: 2px solid #fff;
+      padding-left: 45px;
+      box-sizing: border-box;
+      width: 100%;
+      font-family: $default-font;
+    
+      &:focus {
+        outline: none;
+      }
+      
+      &::placeholder {
+        color: #5d84b3;
+      }
+      
+    }
+    
+    &:before {
+      content: 'To:';
+      color: #8c8c8c;
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      padding-bottom: 3px;
+      transform: translate(0, -50%);
+      font-size: 0.9em;
+    }
+  }
+  
+  .input-body {
+    margin-top: 10px;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    
+    input {
+      font-size: 1em;
+      border: 2px solid #fff;
+      border-radius: 30px;
+      height: 50px;
+      background: transparent;
+      padding: 15px;
+      color:#fff;
+      padding-right: 45px;
+      font-family: $default-font;
+      box-sizing: border-box;
+      width: 100%;
+      
+      &:focus {
+        border: 2px solid #fff;
+        outline: none;
+
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+    
+    button {
+      border: none;
+      content: '^';
+      position: absolute;
+      cursor: pointer;
+      top: 5px;
+      right: 5px;
+      width: 40px;
+      height: 40px;
+      background-color: #0B93F6;
+      text-align: center;
+      border-radius: 40px;
+      color: #fff;
+      
+      &:disabled {
+        background-color: #0d51a1;
+        pointer-events: none;
+      }
+      
+      img {
+        width: 25px;
+        height: 25px;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+  
+}
+
+.chat-bubble {
+  margin-top: 20px;
+  display: inline-block;
+  position: relative;
+  padding: 10px 20px;
+  color: white;
+  background: #0B93F6;
+  border-radius: 25px;
+  max-width: calc(100% - 40px);
+  word-wrap: break-word;
+  font-family: $default-font;
+  
+  &.hide {
+    display: none;
+  }
+  
+}
+
+@-webkit-keyframes fadeOutUp {
+  0% {
+     opacity: 1;
+     -webkit-transform: translateY(0);
+  }
+  100% {
+     opacity: 0;
+     -webkit-transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeOutUp {
+  0% {
+     opacity: 1;
+     transform: translateY(0);
+  }
+  100% {
+     opacity: 0;
+     transform: translateY(-20px);
+  }
+}
+
+.fadeOutUp {
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+  animation-duration: .5s;
+}
